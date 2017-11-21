@@ -1,0 +1,67 @@
+  <div class="latest-news">
+                                   
+                                    <div class="row">
+
+                                        <?php   
+                                          
+                                            $sql_thumnail_article=$views->runQuery("SELECT content.id, content.text_title,  content.publish_date, 
+                                                  menu.c_id,  content.media
+                                            FROM content
+                                            LEFT JOIN menu ON content.cat_id=menu.c_id 
+                                            
+                                            WHERE content.display=:d_num and id!=:id_article order by publish_date DESC LIMIT 4");
+                                             
+                                            $sql_thumnail_article->execute(array(':d_num'=>1, ':id_article' => $_REQUEST['id_article']));
+                                            while($result_article=$sql_thumnail_article->fetch(PDO::FETCH_ASSOC)){ 
+                                         ?>
+                                            
+                                        <div  class="col-md-6">
+                                            <div class="news-thumnail">
+                                                
+                                                <div class="news-img-thumbs">
+                                                    <a href="index.php?views=detail_news&id_article=<?php echo $result_article['id'];?>">
+                                                        <img src="img/thumbs/<?php echo $result_article["media"];?>"/>
+                                                    </a>
+                                                </div>
+                                                <div class="news-title">
+                                                    <div class="date-release"> 
+                                                <i class="fa fa-calendar" aria-hidden="true"></i> <span><?php echo date("F d, Y", strtotime($result_article['publish_date']));?></span>
+                                                </div>
+                                                    <h1 class="box dot1">
+                                                        <a href="index.php?views=detail_news&id_article=<?php echo $result_article['id'];?>">
+                                                            <?php echo $result_article['text_title'];?>   
+                                                        </a>
+                                                    </h1>
+                                                </div>
+                                            </div> 
+                                            
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+
+                                </div>
+
+
+
+                                    <?php $arrayline = array('1' => 'sub-page-bar-news', '17' => 'sub-page-bar-biz', '18'=> 'sub-page-bar-life_style', 
+            '13' => 'sub-page-bar-tech', '4' => 'sub-page-bar-sport', '3' => 'sub-page-bar-art', '15' => 'sub-page-bar-photo'); ?>
+
+
+
+
+            <div class="detail_new-title">
+                                <h1><?php echo $result_detail["text_title"];?></h1>
+                            </div>
+                          
+                            <div class="more_info"><?php echo date("F d, Y", strtotime($result_detail['publish_date'])); 
+                                    echo " | <i class='glyphicon glyphicon-eye-open'></i> "; if($result_detail['count']!=""){echo $result_detail['count'];}else{echo '0';}?>
+                            </div>
+                            <div style="color:red; text-align:center; padding:10px; margin: 10px; border: solid 2px #f0f0f0; font-size:18px;​ font-weight: bold; font-family:'Nokora', serif">
+                                <a href="http://www.188bet.com/km-kh/?vendorid=21160&vendortype=2" target="_blank" style="color:red"> ចុះឈ្មោះនិងលេងនៅ 188BET.COM ឈ្នះដំនើរកម្សាន្តទៅអេស៉្បាញ និងអង់គ្លេស </a>
+                            </div>
+
+
+
+                              <div id="page-detail-bar">
+                                <h1><?php echo $result_detail["c_title"];?></h1>
+                             </div>

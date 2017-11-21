@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+		<meta name="author" content="www.frebsite.nl" />
+
+		<title>dotdotdot, advanced cross-browser ellipsis for multiple line content.</title>
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" language="javascript" src="src/jquery.dotdotdot.js"></script>
+		<script type="text/javascript" language="javascript">
+			$(function() {
+				$('#dot1').dotdotdot();
+			});
+		</script>
+		<style type="text/css" media="all">
+			div.box {
+                border: 1px solid #ccc;
+                height: 160px;
+                padding: 15px 20px 10px 20px;
+/*              overflow: hidden; */
+width: 200px;
+            }
+		</style>
+	</head>
+	<body>
+		
+ 					<div class="box after" id="dot1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
+				
+
+	</body>
+</html>
